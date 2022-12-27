@@ -1,41 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.loader,
+.loader:before,
+.loader:after {
+  background: transparent;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+.loader {
+  color: var(--primaryColor);
+  text-indent: -9999em;
+  margin: 88px auto;
+  margin-top: 20rem;
+  position: relative;
+  font-size: 3rem;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
   }
-  to {
-    transform: rotate(360deg);
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
 }
