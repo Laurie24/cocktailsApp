@@ -1,42 +1,32 @@
-import React from "react";
-import Cocktail from "./Cocktail";
-import { useGlobalContext } from "../AppProvider";
-import styled from "styled-components";
+import React from 'react'
+import Cocktail from './Cocktail'
+import { useGlobalContext } from '../AppProvider'
+import styled from 'styled-components'
 
 const Section = styled.section`
-    overflow: scroll;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  & > div {
+    width: 100%;
     display: flex;
+    overflow: auto;
+    position: relative;
+    z-index: 5;
     justify-content: center;
     flex-wrap: wrap;
-    overflow: scroll;
-    gap: 20px;
-  }
+    gap: 40px;
 `
 
 const CocktailList = () => {
-    const { cocktails } = useGlobalContext();
+    const { cocktails } = useGlobalContext()
 
     if (cocktails === null) {
-        return(
-            <h2>no cocktails matched your search criteria</h2>
-        )
+        return <h2>No cocktails matched your search criteria</h2>
     }
     return (
         <Section>
-            <h2>cocktails</h2>
-            <div>
-                {cocktails.map((cocktail, index) => {
-                    return <Cocktail key={index} cocktail={cocktail}/>;
-                })}
-            </div>
+            {cocktails.map((cocktail, index) => {
+                return <Cocktail key={index} cocktail={cocktail} />
+            })}
         </Section>
-    );
-};
+    )
+}
 
-export default CocktailList;
+export default CocktailList

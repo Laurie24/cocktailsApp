@@ -1,0 +1,59 @@
+{
+    "root": true,
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "parser": "babel-eslint",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true,
+        "amd": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended",
+    ],
+    "plugins": [
+        "prettier",
+        "jsx-a11y",
+        "react",
+        "sort-keys-fix",
+        "sort-destructure-keys",
+    ],
+    "rules": {
+        "react/prop-types": "off",
+        "curly": [
+            2,
+            "all"
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "react/jsx-closing-bracket-location": [
+            0,
+            "tag-aligned"
+        ],
+        "react/jsx-newline": [
+            2,
+            {
+                "prevent": false
+            }
+        ]
+    }
+}

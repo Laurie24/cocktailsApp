@@ -5,5 +5,6 @@ export const primaryColors = {
 
 export const secondaryColors = {
     purple: '#DDCEFF',
-    pink: '#F8DFF0'
+    pink: '#F8DFF0',
+    white: '#FFFFFF',
 }

@@ -1,46 +1,43 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useCallback } from "react";
-import {GlobalStyles} from "./style/globals.jsx";
+import React, { Suspense, useContext, useEffect, useState } from 'react'
+import { GlobalStyles } from './style/globals.jsx'
 
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-const AppContext = React.createContext();
+const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
+const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-    const [cocktails, setCocktails] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [cocktailInput, setCocktailInput] = useState("");
-
+    const [cocktails, setCocktails] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [cocktailInput, setCocktailInput] = useState('')
 
     const getInitialCocktails = async () => {
         try {
-            const response = await fetch(url + "wine");
-            const data = await response.json();
-            setIsLoading(false);
-            setCocktails(data.drinks);
+            const response = await fetch(url + 'wine')
+            const data = await response.json()
+            setIsLoading(false)
+            setCocktails(data.drinks)
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
-    };
+    }
     const getNewCocktails = async () => {
         try {
-            const response = await fetch(url + cocktailInput);
-            const data = await response.json();
-            setIsLoading(false);
-            setCocktails(data.drinks);
+            const response = await fetch(url + cocktailInput)
+            const data = await response.json()
+            setIsLoading(false)
+            setCocktails(data.drinks)
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
-    };
+    }
     useEffect(() => {
-        setIsLoading(true);
-        getInitialCocktails();
-    }, []);
+        setIsLoading(true)
+        getInitialCocktails()
+    }, [])
 
     useEffect(() => {
-        setIsLoading(true);
-        getNewCocktails();
-    }, [cocktailInput]);
-
+        setIsLoading(true)
+        getNewCocktails()
+    }, [cocktailInput])
 
     return (
         <AppContext.Provider
@@ -53,13 +50,12 @@ const AppProvider = ({ children }) => {
         >
             <GlobalStyles />
 
-            {children}
+            <Suspense fallback={'loading'}>{children}</Suspense>
         </AppContext.Provider>
-    );
-};
-// make sure use
+    )
+}
 export const useGlobalContext = () => {
-    return useContext(AppContext);
-};
+    return useContext(AppContext)
+}
 
-export { AppContext, AppProvider };
+export { AppContext, AppProvider }

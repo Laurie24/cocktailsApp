@@ -1,35 +1,39 @@
-import React from "react";
-import SearchForm from "../components/SearchForm.jsx";
-import styled from "styled-components";
-import CocktailList from "../components/CocktailList.jsx";
+import React from 'react'
+import SearchForm from '../components/SearchForm.jsx'
+import styled from 'styled-components'
+import CocktailList from '../components/CocktailList.jsx'
+import { secondaryColors } from '../style/theme.jsx'
 
 const HomeBg = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  border-radius: 15px;
-  box-sizing: border-box;
-  width: 80vw;
-  height: 80vh;
-  background: radial-gradient(100% 249.45% at 0% 2.78%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    padding: 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 80vw;
+    height: 80vh;
+    z-index: 1055;
+    backdrop-filter: blur(8.66691px);
+    background: radial-gradient(100% 249.45% at 0% 2.78%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    bottom: -16px;
-    right: -16px;
-    border: 16px solid rgba(255, 255, 255, 0.24);
-    border-radius: 33px;
-  }
+    &:after {
+        content: '';
+        position: absolute;
+        top: -12px;
+        bottom: -12px;
+        right: -12px;
+        left: -12px;
+        border: 12.6064px solid rgba(255, 255, 255, 0.24);
+        border-radius: 15px;
+        z-index: 0;
+    }
 `
 const Home = () => {
     return (
         <HomeBg>
             <SearchForm />
+
             <CocktailList />
         </HomeBg>
     )
