@@ -2,7 +2,7 @@ import React from 'react'
 import SearchForm from '../components/SearchForm.jsx'
 import styled from 'styled-components'
 import CocktailList from '../components/CocktailList.jsx'
-import { secondaryColors } from '../style/theme.jsx'
+import { device } from '../style/theme.jsx'
 
 const HomeBg = styled.div`
     display: flex;
@@ -11,12 +11,15 @@ const HomeBg = styled.div`
     padding: 50px;
     border-radius: 5px;
     box-sizing: border-box;
-    width: 80vw;
-    height: 80vh;
+    width: 90vw;
+    height: 95vh;
     z-index: 1055;
     backdrop-filter: blur(8.66691px);
     background: radial-gradient(100% 249.45% at 0% 2.78%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-
+    @media${device.tablet} {
+        flex-direction: column;
+        padding: 10px;
+    }
     &:after {
         content: '';
         position: absolute;

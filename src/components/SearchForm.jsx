@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useGlobalContext } from '../AppProvider'
 import styled from 'styled-components'
-import { primaryColors, secondaryColors } from '../style/theme.jsx'
+import { device, primaryColors, secondaryColors } from '../style/theme.jsx'
 import Search from '../assets/search.svg'
 import Card from './Card.jsx'
 import Image from '../assets/undraw_questions.svg'
@@ -16,6 +16,9 @@ const Section = styled.section`
     border-radius: 17px;
     z-index: 5;
     position: relative;
+    @media${device.tablet} {
+        width: 100%;
+    }
 
     form {
         height: 100%;
@@ -53,6 +56,9 @@ const Br = styled.div`
     width: 100%;
     background-color: white;
     margin: 25px 0;
+    @media${device.tablet} {
+        margin: 15px 0;
+    }
 `
 
 const Button = styled.button`

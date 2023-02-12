@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { primaryColors } from '../style/theme.jsx'
+import { device, primaryColors } from '../style/theme.jsx'
 
 const Article = styled.article`
     background: radial-gradient(100% 249.45% at 0% 2.78%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
@@ -13,9 +13,17 @@ const Article = styled.article`
     display: flex;
     align-items: center;
     gap: 20px;
+    @media${device.tablet} {
+        flex-direction: column;
+        padding: 8px;
+        gap: 10px;
+    }
 
     & > div:first-child {
         width: 45%;
+        @media${device.tablet} {
+            width: 90%;
+        }
     }
     & img {
         width: 100%;
@@ -47,6 +55,9 @@ const LinkStyled = styled(Link)`
     width: 35%;
     text-decoration: none;
     color: ${primaryColors.dark};
+    @media${device.tablet} {
+        width: 45%;
+    }
 `
 
 const Cocktail = ({ cocktail }) => {

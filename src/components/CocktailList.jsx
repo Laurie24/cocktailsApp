@@ -2,6 +2,7 @@ import React from 'react'
 import Cocktail from './Cocktail'
 import { useGlobalContext } from '../AppProvider'
 import styled from 'styled-components'
+import { device } from '../style/theme.jsx'
 
 const Section = styled.section`
     width: 100%;
@@ -12,6 +13,9 @@ const Section = styled.section`
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
+    @media${device.tablet} {
+        gap: 10px;
+    }
 `
 
 const CocktailList = () => {
