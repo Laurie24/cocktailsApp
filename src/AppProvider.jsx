@@ -1,5 +1,6 @@
 import React, { Suspense, useContext, useEffect, useState } from 'react'
 import { GlobalStyles } from './style/globals.jsx'
+import Loading from './components/Loading.jsx'
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
@@ -50,7 +51,7 @@ const AppProvider = ({ children }) => {
         >
             <GlobalStyles />
 
-            <Suspense fallback={'loading'}>{children}</Suspense>
+            <Suspense fallback={<Loading />}>{children}</Suspense>
         </AppContext.Provider>
     )
 }

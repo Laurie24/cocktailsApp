@@ -1,7 +1,12 @@
+import { Loader } from './Loading.styles.jsx'
 import React from 'react'
 
 const Loading = () => {
-    return <div className="loader"></div>
+    return (
+        <>
+            <Loader />
+        </>
+    )
 }
 
 export default Loading
