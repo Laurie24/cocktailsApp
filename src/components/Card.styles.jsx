@@ -16,8 +16,9 @@ export const CardStyled = styled.div`
     border-radius: 15px;
     box-shadow: 4px 4px 8px ${secondaryColors.pink}, -5px -5px 10px ${secondaryColors.white};
     @media${device.tablet} {
+        padding: 10px;
         margin: 20px auto 0 auto;
-        width: 65%;
+        width: 60%;
     }
 
     &:focus {

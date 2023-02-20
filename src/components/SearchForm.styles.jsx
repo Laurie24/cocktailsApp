@@ -13,6 +13,7 @@ export const Section = styled.section`
     z-index: 5;
     @media${device.tablet} {
         width: 100%;
+        padding: 15px 20px 10px 20px;
     }
 
     form {
